@@ -32,6 +32,8 @@ flowchart TD
 
 The configured provider implements normalized text, tool-call, usage, and stop-reason events. Anthropic is the default. OpenAI-compatible providers support streamed function calling and native tool calls. `LLM_TOOL_MODE=prefetch` rewrites the question, performs scoped retrieval, and supplies numbered sources without native tool calls.
 
+Meta Llama models are supported when exposed by an OpenAI-compatible endpoint. The backend sends the endpoint the configured model identifier, document-search tools in OpenAI function format, and streamed tool-result messages. This adapter contains no provider-specific model code, so a deployment can evaluate compatible Meta models by changing `LLM_BASE_URL`, `LLM_API_KEY`, and `LLM_MODEL` without changing application behavior.
+
 Search scope is always supplied by authenticated request context rather than model-generated scope fields. Retrieved document text is treated as untrusted reference data.
 
 ## Storage

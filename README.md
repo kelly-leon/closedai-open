@@ -22,6 +22,7 @@ No live demo is published in this repository. Run the self-hosted setup above to
 - Ask follow-up questions against documents in a selected unit.
 - Stream answers and page-linked source citations.
 - Choose Anthropic or an OpenAI-compatible LLM provider.
+- Run Meta Llama models through any compatible OpenAI-format endpoint or hosted inference provider.
 - Use native tool calls or prefetch retrieval mode.
 - Store embeddings locally or with a hosted embedding provider.
 - Use local authentication or hosted Supabase authentication.
@@ -104,7 +105,7 @@ Provision PostgreSQL with pgvector, run Alembic migrations, deploy the FastAPI b
 | `ANTHROPIC_API_KEY` | Anthropic chat and image reading | `YOUR_ANTHROPIC_API_KEY` |
 | `ANTHROPIC_MODEL` | Anthropic model | `your-model-id` |
 | `LLM_PROVIDER` | Anthropic or OpenAI-compatible provider | `anthropic` |
-| `LLM_BASE_URL` | OpenAI-compatible API base URL | `https://your-provider.example/v1` |
+| `LLM_BASE_URL` | OpenAI-compatible API base URL, including Meta-compatible endpoints | `https://your-provider.example/v1` |
 | `LLM_API_KEY` | OpenAI-compatible provider key | `YOUR_LLM_API_KEY` |
 | `LLM_MODEL` | Configured chat model | `your-model-id` |
 | `LLM_TIMEOUT_SECONDS` | Provider timeout | `60` |
@@ -125,6 +126,20 @@ Provision PostgreSQL with pgvector, run Alembic migrations, deploy the FastAPI b
 | `SENTRY_DSN` | Optional backend monitoring | `https://example.invalid/1` |
 
 Additional optional settings are listed in [.env.example](.env.example).
+
+### Meta model configuration
+
+ClosedAI can use a Meta Llama model through an OpenAI-compatible inference endpoint. Configure the endpoint URL and model identifier with:
+
+```text
+LLM_PROVIDER=openai_compatible
+LLM_BASE_URL=https://your-meta-compatible-provider.example/v1
+LLM_API_KEY=YOUR_LLM_API_KEY
+LLM_MODEL=your-meta-model-id
+LLM_TOOL_MODE=native
+```
+
+For providers whose tool calling is unreliable, use `LLM_TOOL_MODE=prefetch`. Anthropic remains the default provider unless `LLM_PROVIDER` is changed.
 
 ## Limitations
 
