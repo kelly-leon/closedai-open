@@ -22,7 +22,10 @@ No live demo is published in this repository. Run the self-hosted setup above to
 - Ask follow-up questions against documents in a selected unit.
 - Stream answers and page-linked source citations.
 - Choose Anthropic or an OpenAI-compatible LLM provider.
+<<<<<<< HEAD
 - Run Meta Llama models through any compatible OpenAI-format endpoint or hosted inference provider.
+=======
+>>>>>>> a36a6a81b058e21a51dab9728ab43c3c4109c859
 - Use native tool calls or prefetch retrieval mode.
 - Store embeddings locally or with a hosted embedding provider.
 - Use local authentication or hosted Supabase authentication.
@@ -105,7 +108,11 @@ Provision PostgreSQL with pgvector, run Alembic migrations, deploy the FastAPI b
 | `ANTHROPIC_API_KEY` | Anthropic chat and image reading | `YOUR_ANTHROPIC_API_KEY` |
 | `ANTHROPIC_MODEL` | Anthropic model | `your-model-id` |
 | `LLM_PROVIDER` | Anthropic or OpenAI-compatible provider | `anthropic` |
+<<<<<<< HEAD
 | `LLM_BASE_URL` | OpenAI-compatible API base URL, including Meta-compatible endpoints | `https://your-provider.example/v1` |
+=======
+| `LLM_BASE_URL` | OpenAI-compatible API base URL | `https://your-provider.example/v1` |
+>>>>>>> a36a6a81b058e21a51dab9728ab43c3c4109c859
 | `LLM_API_KEY` | OpenAI-compatible provider key | `YOUR_LLM_API_KEY` |
 | `LLM_MODEL` | Configured chat model | `your-model-id` |
 | `LLM_TIMEOUT_SECONDS` | Provider timeout | `60` |
@@ -127,6 +134,7 @@ Provision PostgreSQL with pgvector, run Alembic migrations, deploy the FastAPI b
 
 Additional optional settings are listed in [.env.example](.env.example).
 
+<<<<<<< HEAD
 ### Meta model configuration
 
 ClosedAI can use a Meta Llama model through an OpenAI-compatible inference endpoint. Configure the endpoint URL and model identifier with:
@@ -141,6 +149,8 @@ LLM_TOOL_MODE=native
 
 For providers whose tool calling is unreliable, use `LLM_TOOL_MODE=prefetch`. Anthropic remains the default provider unless `LLM_PROVIDER` is changed.
 
+=======
+>>>>>>> a36a6a81b058e21a51dab9728ab43c3c4109c859
 ## Limitations
 
 - Retrieval quality depends on extraction, chunking, embeddings, and the selected model.
